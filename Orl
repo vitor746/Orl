@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORL - Onde seu crédito vale mais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
+    <style>
+        :root {
+            --ml-yellow: #fff159;
+            --ml-blue: #3483fa;
+        }
+        body {
+            background-color: #ebebeb;
+            font-family: 'Proxima Nova', -apple-system, Roboto, Arial, sans-serif;
+        }
+        .bg-ml-yellow { background-color: var(--ml-yellow); }
+        .text-ml-blue { color: var(--ml-blue); }
+        .btn-credit {
+            background: linear-gradient(90deg, #3483fa 0%, #00bcff 100%);
+            transition: transform 0.2s;
+        }
+        .btn-credit:hover {
+            transform: scale(1.05);
+        }
+        .product-card {
+            transition: box-shadow 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Estilo Mercado Livre -->
+    <header class="bg-ml-yellow pt-2 pb-3 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <!-- Logo -->
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <h1 class="text-3xl font-bold italic tracking-tighter text-gray-800">ORL</h1>
+                    <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+                </div>
+
+                <!-- Busca -->
+                <div class="flex-grow w-full md:max-w-2xl relative">
+                    <input type="text" placeholder="Buscar produtos, marcas e muito mais..." class="w-full py-2 px-4 pr-10 rounded-sm shadow-sm focus:outline-none">
+                    <button class="absolute right-3 top-2 text-gray-400 border-l pl-3">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- Frete Grátis Mockup -->
+                <div class="hidden lg:flex items-center gap-2 text-xs text-gray-700">
+                    <i class="fas fa-shipping-fast text-lg"></i>
+                    <span>Frete grátis em <br><b>milhões de produtos</b></span>
+                </div>
+            </div>
+
+            <!-- Nav Baixo -->
+            <nav class="hidden md:flex justify-between items-center mt-3 text-sm text-gray-700">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-black">Categorias</a>
+                    <a href="#" class="hover:text-black">Ofertas</a>
+                    <a href="#" class="hover:text-black">Histórico</a>
+                    <a href="#" class="hover:text-black">Supermercado</a>
+                    <a href="#" class="hover:text-black">Moda</a>
+                    <a href="#" class="hover:text-black">Vender</a>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <a href="#">Crie a sua conta</a>
+                    <a href="#">Entre</a>
+                    <a href="#">Compras</a>
+                    <i class="fas fa-shopping-cart text-lg cursor-pointer"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        
+        <!-- Banner de Crédito Especial -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center justify-between gap-6 border-l-8 border-blue-500">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 p-4 rounded-full text-blue-600">
+                        <i class="fas fa-hand-holding-usd text-3xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">Crédito ORL para você!</h2>
+                        <p class="text-gray-600">Parcele suas compras sem cartão de crédito com o VICTOR.</p>
+                    </div>
+                </div>
+                <!-- Botão de Crédito Solicitado -->
+                <button onclick="toggleCreditModal()" class="btn-credit text-white font-bold py-3 px-8 rounded-full shadow-lg">
+                    SOLICITAR CRÉDITO
+                </button>
+            </div>
+        </section>
+
+        <!-- Carousel / Banner Principal -->
+        <section class="mb-10 rounded-lg overflow-hidden shadow-lg h-48 md:h-80 bg-gradient-to-r from-blue-600 to-indigo-700 relative flex items-center px-12">
+            <div class="text-white">
+                <p class="uppercase tracking-widest text-sm mb-2">Ofertas do Dia</p>
+                <h2 class="text-4xl font-extrabold mb-4">ATÉ 50% OFF</h2>
+                <button class="bg-white text-blue-600 px-6 py-2 rounded font-bold uppercase text-xs">Aproveite</button>
+            </div>
+            <div class="absolute right-0 bottom-0 opacity-20">
+                <i class="fas fa-tags text-9xl -rotate-12 translate-x-10 translate-y-10"></i>
+            </div>
+        </section>
+
+        <!-- Grade de Produtos -->
+        <section>
+            <h3 class="text-2xl font-semibold text-gray-700 mb-6">Inspirado no último que você viu</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                
+                <!-- Produto 1 -->
+                <div class="product-card bg-white rounded-md overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=400" alt="Relógio" class="max-h-full">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-600 mb-1">Relógio Inteligente Smartwatch v8</p>
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-400 line-through">R$ 299</span>
+                            <span class="text-2xl font-medium">R$ 189,90</span>
+                            <span class="text-xs text-green-600 font-bold">12x R$ 15,82 sem juros</span>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold mt-2">Frete grátis</p>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card bg-white rounded-md overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400" alt="Fone" class="max-h-full">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-600 mb-1">Fone de Ouvido Noise Cancelling</p>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-medium">R$ 450,00</span>
+                            <span class="text-xs text-green-600 font-bold">em 10x de R$ 45,00</span>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold mt-2">Envio FULL</p>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card bg-white rounded-md overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=400" alt="Tenis" class="max-h-full">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-600 mb-1">Tênis Esportivo Running Max</p>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-medium">R$ 320,00</span>
+                            <span class="text-xs text-blue-600 font-bold">Oferta do dia</span>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold mt-2">Frete grátis</p>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="product-card bg-white rounded-md overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1585333127302-c2c98184b83a?auto=format&fit=crop&q=80&w=400" alt="Mouse" class="max-h-full">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-600 mb-1">Mouse Gamer RGB 16000 DPI</p>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-medium">R$ 149,90</span>
+                            <span class="text-xs text-green-600 font-bold">12x R$ 12,49</span>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold mt-2">Frete grátis</p>
+                    </div>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="product-card bg-white rounded-md overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&q=80&w=400" alt="Teclado" class="max-h-full">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <p class="text-sm text-gray-600 mb-1">Teclado Mecânico Compacto</p>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-medium">R$ 299,00</span>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold mt-2">Frete grátis</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Crédito -->
+    <div id="creditModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-[60]">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4 relative">
+            <button onclick="toggleCreditModal()" class="absolute top-4 right-4 text-gray-500 text-xl">&times;</button>
+            <div class="text-center">
+                <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Solicitação Enviada!</h3>
+                <p class="text-gray-600 mb-6">O consultor <b>Victor</b> está analisando o seu limite disponível para compras no Mercado ORL.</p>
+                <div class="bg-blue-50 p-4 rounded text-left mb-6">
+                    <p class="text-sm text-blue-800"><b>Aviso:</b> Você receberá uma notificação no app assim que for aprovado.</p>
+                </div>
+                <button onclick="toggleCreditModal()" class="w-full bg-ml-blue text-white font-bold py-2 rounded">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-10 border-t">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="font-bold mb-4">Sobre o ORL</h4>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>Quem somos</li>
+                    <li>Sustentabilidade</li>
+                    <li>Trabalhe conosco</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Ajuda</h4>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>Comprar</li>
+                    <li>Vender</li>
+                    <li>Resolução de problemas</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Redes Sociais</h4>
+                <div class="flex gap-4 text-xl text-gray-400">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm text-gray-400 mb-1">Orgulhosamente desenvolvido por</p>
+                <p class="text-xl font-bold text-gray-700">VICTOR_</p>
+                <p class="text-xs text-gray-400 mt-4">&copy; 2025 Mercado ORL S.A.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleCreditModal() {
+            const modal = document.getElementById('creditModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+
